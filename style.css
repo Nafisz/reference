@@ -21,7 +21,7 @@ button {
 body {
     background-color: #050505;
     color: #dcdef2;
-    min-height: 100vh;
+    height: 250vh;
 }
 
 .container {
@@ -136,11 +136,15 @@ body {
 }
 /* Perbaikan untuk tombol yang melebar */
 .about-section .btn-register {
-  display: inline-block; /* Pastikan tombol hanya selebar kontennya */
+  display: flex; /* Pastikan tombol hanya selebar kontennya */
   width: auto; /* Batalkan lebar yang mungkin mempengaruhi */
   max-width: 250px; /* Batasi lebar maksimal */
   margin: 2rem auto 0; /* Atur margin atas dan tengahkan tombol */
-  text-align: center; /* Pastikan teks tetap di tengah */
+  text-align: center;/* Pastikan teks tetap di tengah */
+  padding: 1rem 1rem; /* Atur padding sesuai kebutuhan */
+  align-items: center;
+  justify-content: center;
+
 }
 
 /* Pastikan container di about-section tidak menyebabkan tombol melebar */
