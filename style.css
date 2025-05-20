@@ -49,26 +49,26 @@ body {
     width: 200px;
     background: linear-gradient(90deg, transparent, #e8e6eb, transparent);
     margin: 2rem auto;
-    box-shadow: 0 0 10px #00f3ff;
+    box-shadow: 0 0 10px #daef9c;
 }
 
 .btn-register {
     display: inline-block;
     padding: 1rem 3rem;
-    background: linear-gradient(45deg, #00f3ff, #0066ff);
-    color: #000;
+    background: linear-gradient(45deg, #0705a4, #090b0e);
+    color: #f0dddd;
     text-decoration: none;
     font-weight: bold;
     border-radius: 30px;
     transition: 0.3s;
-    border: 2px solid #00f3ff;
+    border: 2px solid #3d9cd7;
     position: relative;
     overflow: hidden;
 }
 
 .btn-register:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px #00f3ff;
+    box-shadow: 0 0 20px #b4d658;
 }
 
 .level-container {
