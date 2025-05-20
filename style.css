@@ -1,3 +1,5 @@
+
+/* index */
 button {
   background-color: #fff;
   color: #333;
@@ -18,7 +20,7 @@ button {
 
 body {
     background-color: #050505;
-    color: #00f3ff;
+    color: #dcdef2;
     min-height: 100vh;
 }
 
@@ -33,7 +35,6 @@ body {
     padding: 5rem 0;
     position: relative;
 }
-
 .neon-text {
     font-size: 3rem;
     text-transform: uppercase;
@@ -46,7 +47,7 @@ body {
 .glowing-bar {
     height: 4px;
     width: 200px;
-    background: linear-gradient(90deg, transparent, #5016e4, transparent);
+    background: linear-gradient(90deg, transparent, #e8e6eb, transparent);
     margin: 2rem auto;
     box-shadow: 0 0 10px #00f3ff;
 }
@@ -117,9 +118,6 @@ body {
 .level-card:hover .glow {
     opacity: 1;
 }
-.neon-text {
-  text-align: center;
-}
 
 /* Tentang Kami Section */
 .about-section {
@@ -136,12 +134,29 @@ body {
     transform: translateY(0);
     opacity: 1;
 }
+/* Perbaikan untuk tombol yang melebar */
+.about-section .btn-register {
+  display: inline-block; /* Pastikan tombol hanya selebar kontennya */
+  width: auto; /* Batalkan lebar yang mungkin mempengaruhi */
+  max-width: 250px; /* Batasi lebar maksimal */
+  margin: 2rem auto 0; /* Atur margin atas dan tengahkan tombol */
+  text-align: center; /* Pastikan teks tetap di tengah */
+}
 
+/* Pastikan container di about-section tidak menyebabkan tombol melebar */
+.about-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin: 3rem 0;
+    width: 100%;
+    max-width: 1100;
+    margin: 2rem auto;
 }
 
 .team-card {
@@ -195,6 +210,61 @@ body {
     font-size: 20px;
     color: #d8e9ea;
 }
+
+/* Modifikasi untuk scroll-down tanpa mengganti definisi hero yang sudah ada */
+.scroll-down {
+  text-align: center;
+  margin-top: 20px; /* Mengurangi jarak dari tombol register */
+  position: relative; /* Tambahkan posisi relative */
+  z-index: 5; /* Pastikan terlihat di atas elemen lain */
+}
+
+.scroll-down p {
+  color: #8a9596; /* Ubah warna untuk lebih terlihat */
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 5px; /* Jarak ke panah di bawahnya */
+}
+
+.arrow-down {
+  margin-top: 5px;
+}
+
+.arrow-down i {
+  font-size: 24px;
+  color: #98a8a9; /* Ubah warna untuk lebih terlihat */
+  animation: arrow-down 2s infinite;
+  display: inline-block; /* Pastikan icon terlihat */
+}
+
+@keyframes arrow-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Pastikan konten hero section minimal terlihat dalam viewport */
+.container:first-child {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* index batas */
+
+
+
+
+
+
+
+
 
 
 
@@ -314,7 +384,7 @@ nav {
     margin-top: 10px;
     opacity: 0.8;
 }
-
+/* location */
 .header {
     background: linear-gradient(90deg, #000000, #1a237e);
     padding: 20px 40px;
@@ -327,6 +397,7 @@ nav {
     justify-content: center;
     align-items: center;
 }
+/* location */
 .futuristic-button {
     padding: 15px 40px;
     font-size: 20px;
@@ -377,37 +448,4 @@ nav {
     margin-bottom: 20px;
 }
 
-/* html */
-.scroll-down {
-  text-align: center;
-  margin-top: 2px;
-}
 
-.scroll-down p {
-  color: #666; 
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.arrow-down {
-  margin-top: 7px;
-}
-
-.arrow-down i {
-  font-size: 24px;
-  color: #666; 
-  animation: arrow-down 2s infinite;
-  z-index: 10;
-}
-
-@keyframes arrow-down {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
