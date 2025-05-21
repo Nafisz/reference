@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <style>
     body {
       margin: 0;
-      background: #0d0d0d;
+      background:rgb(3, 3, 3);
       color: white;
       font-family: sans-serif;
       overflow: hidden;
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     h2.neon-text {
       font-size: 2.5rem;
-      color: #00ffff;
+      color:rgb(252, 252, 252);
     }
 
     .level-container {
@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     .level-card {
-      background: rgba(0, 255, 255, 0.1);
-      border: 1px solid #00ffff;
+      background: rgba(10, 10, 10, 0.91);
+      border: 3px solid #ffffff;
       border-radius: 10px;
       padding: 20px 30px;
       width: 180px;
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     .level-card:hover {
-      background: rgba(0, 255, 255, 0.2);
+      background: rgba(224, 206, 41, 0.2);
       transform: translateY(-5px);
     }
 
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .math-item {
       position: absolute;
       font-size: 1.5rem;
-      color: rgba(255, 255, 255, 0.97);
+      color: rgb(247, 242, 242);
       animation: floatUp linear infinite;
       white-space: nowrap;
     }
