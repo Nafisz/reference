@@ -28,9 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <style>
     body {
       margin: 0;
-      background:rgb(3, 3, 3);
+      background: rgb(3, 3, 3);
       color: white;
-      font-family: sans-serif;
+      font-family: 'Arial', sans-serif;
       overflow: hidden;
     }
 
@@ -41,34 +41,102 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       text-align: center;
     }
 
-    h2.neon-text {
+    h2.text {
       font-size: 2.5rem;
-      color:rgb(252, 252, 252);
+      color: rgb(252, 252, 252);
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 40px;
     }
 
     .level-container {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 40px;
+      gap: 40px;
+      margin-top: 50px;
     }
 
     .level-card {
-      background: rgba(10, 10, 10, 0.91);
-      border: 3px solid #ffffff;
-      border-radius: 10px;
-      padding: 20px 30px;
-      width: 180px;
+      background: linear-gradient(145deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.95));
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 220px;
+      height: 180px;
       text-align: center;
       cursor: pointer;
       color: #fff;
-      transition: background 0.3s, transform 0.3s;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .level-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .level-card:hover::before {
+      left: 100%;
     }
 
     .level-card:hover {
-      background: rgba(224, 206, 41, 0.2);
-      transform: translateY(-5px);
+      background: linear-gradient(145deg, rgba(30, 30, 30, 0.98), rgba(60, 60, 60, 0.98));
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .level-card h3 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin: 0 0 15px 0;
+      letter-spacing: 3px;
+      background: linear-gradient(135deg, #ffffff, #e0e0e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .level-card p {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+    }
+
+    .level-card:hover h3 {
+      background: linear-gradient(135deg, #ffffff, #f0f0f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .level-card:hover p {
+      color: rgba(255, 255, 255, 0.95);
     }
 
     /* Background rumus matematika */
@@ -83,8 +151,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     .math-item {
       position: absolute;
-      font-size: 1.5rem;
-      color: rgb(247, 242, 242);
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.95);
       animation: floatUp linear infinite;
       white-space: nowrap;
     }
@@ -92,14 +160,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     @keyframes floatUp {
       0% {
         transform: translate3d(0, 100vh, 0) rotate(0deg);
-        opacity: 0;
+        opacity: 3;
       }
       10% {
-        opacity: 0.3;
+        opacity: 0.2;
       }
       100% {
         transform: translate3d(var(--dx), -120vh, 0) rotate(var(--rot));
-        opacity: 0;
+        opacity: 3;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .level-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      
+      .level-card {
+        width: 280px;
+      }
+      
+      h2.neon-text {
+        font-size: 2rem;
       }
     }
   </style>
@@ -109,8 +194,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div id="math-bg"></div>
 
   <div class="container">
-    <h2 class="neon-text">PILIH JENJANG PENDIDIKAN</h2>
-    <p class="font-size"><small>Pendaftaran dibuka untuk tahun ajaran 2025/2026</small></p>
+    <h2 class="text">PILIH JENJANG PENDIDIKAN</h2>
+    <p class="subtitle">Pendaftaran dibuka untuk tahun ajaran 2025/2026</p>
     <form method="post" class="level-container">
       <button type="submit" name="level" value="paud" class="level-card">
         <h3>KB</h3>

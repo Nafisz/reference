@@ -147,7 +147,6 @@ body {
 
 }
 
-/* Pastikan container di about-section tidak menyebabkan tombol melebar */
 .about-section .container {
   display: flex;
   flex-direction: column;
@@ -155,66 +154,198 @@ body {
 }
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin: 4rem auto;
     width: 100%;
-    max-width: 1100;
-    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 2rem;
 }
 
 .team-card {
-    background: rgba(28, 3, 3, 0.947);
-    border: 2px solid #00f3ff;
-    padding: 2rem;
-    border-radius: 15px;
+    background: linear-gradient(145deg, rgba(15, 15, 15, 0.98), rgba(30, 30, 30, 0.95));
+    border: 3px solid rgba(223, 224, 224, 0.982);
+    padding: 3rem 2rem;
+    border-radius: 25px;
     text-align: center;
-    transition: 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(15px);
+    box-shadow: 
+        0 15px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 243, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.team-card:hover::before {
+    left: 100%;
 }
 
 .team-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px #00f3ff44;
+    transform: translateY(-15px) scale(1.02);
+    border: 3px solid rgba(245, 247, 248, 0.952);
+    box-shadow: 
+        0 25px 80px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(191, 207, 100, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: linear-gradient(145deg, rgba(20, 20, 20, 0.98), rgba(40, 40, 40, 0.95));
 }
 
 .team-image {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    margin: 0 auto 1rem;
+    margin: 0 auto 2rem;
     overflow: hidden;
-    border: 2px solid #00f3ff;
-    box-shadow: 0 0 15px #00f3ff;
+    border: 4px solid rgba(246, 248, 248, 0.8);
+    box-shadow: 
+        0 0 10px rgba(253, 253, 252, 0.966),
+        inset 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.team-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, transparent 40%, rgba(0, 243, 255, 0.1) 70%);
+    pointer-events: none;
+}
+
+.team-card:hover .team-image {
+    border: 4px solid #ddef82;
+    box-shadow: 
+        0 0 50px rgba(223, 235, 98, 0.6),
+        inset 0 2px 15px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
 }
 
 .team-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.team-card:hover .team-image img {
+    transform: scale(1.1);
+    filter: brightness(1) contrast(1.2);
 }
 
 .btn-team {
-    background: linear-gradient(45deg, #00f3ff, #0066ff);
+    background: linear-gradient(135deg, #00f3ff 0%, #0088ff 50%, #0066ff 100%);
     color: #000;
-    padding: 0.8rem 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
     border: none;
-    border-radius: 25px;
+    border-radius: 50px;
     cursor: pointer;
-    margin-top: 1rem;
-    transition: 0.3s;
+    margin-top: 2rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 25px rgba(0, 243, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-team::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-team:hover::before {
+    left: 100%;
 }
 
 .btn-team:hover {
-    box-shadow: 0 0 15px #00f3ff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 15px 40px rgba(0, 243, 255, 0.5),
+        0 0 30px rgba(0, 243, 255, 0.4);
+    background: linear-gradient(135deg, #00f3ff 0%, #0099ff 50%, #0077ff 100%);
+}
+
+.btn-team:active {
+    transform: translateY(-1px) scale(1.02);
 }
 
 .font-size {
-    font-size: 20px;
-    color: #d8e9ea;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #e8f4f8;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+    letter-spacing: 0.5px;
 }
 
+.team-card h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 1rem 0 0.5rem 0;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.team-card h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(0, 243, 255, 0.9);
+    margin: 0.5rem 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .team-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .team-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .btn-team {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
+}
 /* Modifikasi untuk scroll-down tanpa mengganti definisi hero yang sudah ada */
 .scroll-down {
   text-align: center;
