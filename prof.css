@@ -1,0 +1,305 @@
+/* Animated Background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #07175a 0%, #04236b 100%);
+}
+
+.ocean {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, #2c1ad3, #175899);
+    animation: wave 8s ease-in-out infinite;
+}
+
+.ocean:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200'%3E%3Cpath d='M0,100 C300,150 900,50 1200,100 L1200,200 L0,200 Z' fill='%234da6ff'/%3E%3C/svg%3E") repeat-x;
+    animation: wave-top 6s ease-in-out infinite;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(18, 54, 172, 0.8);
+    border-radius: 50px;
+    opacity: 0.7;
+}
+
+.cloud:before {
+    content: '';
+    position: absolute;
+    background: rgba(35, 28, 145, 0.8);
+    border-radius: 50px;
+}
+
+.cloud:after {
+    content: '';
+    position: absolute;
+    background: rgba(111, 104, 238, 0.8);
+    border-radius: 50px;
+}
+
+.cloud1 {
+    width: 100px;
+    height: 40px;
+    top: 20%;
+    left: -150px;
+    animation: float 20s infinite linear;
+}
+
+.cloud1:before {
+    width: 50px;
+    height: 40px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud1:after {
+    width: 60px;
+    height: 30px;
+    top: -10px;
+    right: 10px;
+}
+
+.cloud2 {
+    width: 80px;
+    height: 30px;
+    top: 40%;
+    left: -120px;
+    animation: float 25s infinite linear;
+    animation-delay: -5s;
+}
+
+.cloud2:before {
+    width: 40px;
+    height: 30px;
+    top: -15px;
+    left: 15px;
+}
+
+.cloud2:after {
+    width: 50px;
+    height: 25px;
+    top: -8px;
+    right: 15px;
+}
+
+.cloud3 {
+    width: 120px;
+    height: 50px;
+    top: 60%;
+    left: -180px;
+    animation: float 30s infinite linear;
+    animation-delay: -10s;
+}
+
+.cloud3:before {
+    width: 60px;
+    height: 50px;
+    top: -25px;
+    left: 20px;
+}
+
+.cloud3:after {
+    width: 70px;
+    height: 35px;
+    top: -15px;
+    right: 20px;
+}
+
+@keyframes float {
+    0% { transform: translateX(-200px); }
+    100% { transform: translateX(calc(100vw + 200px)); }
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes wave-top {
+    0%, 100% { transform: translateX(0px); }
+    50% { transform: translateX(-20px); }
+}
+
+/* Main Content */
+.container {
+    position: relative;
+    z-index: 1;
+    min-height: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.logo-container {
+    margin-top: 100px;
+    margin-bottom: 120px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.logo {
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: 700;
+    color: #667eea;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 50px;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.school-name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.feature-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.feature-desc {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+.instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    padding: 18px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.instagram-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.instagram-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .school-name {
+        font-size: 2.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+    .logo {
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+    }
+}
