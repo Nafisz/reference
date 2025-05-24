@@ -160,14 +160,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     @keyframes floatUp {
       0% {
         transform: translate3d(0, 100vh, 0) rotate(0deg);
-        opacity: 3;
+        opacity: 2;
       }
       10% {
-        opacity: 0.2;
+        opacity: 0.6;
       }
       100% {
         transform: translate3d(var(--dx), -120vh, 0) rotate(var(--rot));
-        opacity: 3;
+        opacity: 2;
       }
     }
 
